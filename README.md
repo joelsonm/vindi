@@ -29,7 +29,7 @@ Facades
 ```
 
 ### Configurando
-Configure os dados no arquivo config/correios.php
+Configure os dados no arquivo config/vindi.php
 
 ## ENDPOINT DISPONÍVEIS
 
@@ -37,19 +37,19 @@ Configure os dados no arquivo config/correios.php
     Vindi::customers()
     Vindi::plans()
     Vindi::products()
-    Vindi::payment_methods métodos()
+    Vindi::paymentMethods()
     Vindi::discounts()
     Vindi::subscriptions()
-    Vindi::product_items métodos()
+    Vindi::productItems()
     Vindi::periods()
     Vindi::bills()
-    Vindi::bill_items()
+    Vindi::billItems()
     Vindi::charges()
     Vindi::transactions()
-    Vindi::payment_profiles métodos()
-    Vindi::usages métodos()
+    Vindi::paymentProfiles()
+    Vindi::usages()
     Vindi::invoices()
-    Vindi::movements métodos()
+    Vindi::movements()
     Vindi::messages()
 
 ```
