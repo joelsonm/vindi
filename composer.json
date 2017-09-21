@@ -2,6 +2,7 @@
     "name": "joelsonm/vindi",
     "description": "API REST Vindi para Laravel 5.*",
     "type": "library",
+    "keywords" : ["vindi", "laravel", "api"],
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     },
