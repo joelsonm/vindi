@@ -29,7 +29,7 @@ Facades
 ```
 
 ### Configurando
-Configure os dados no arquivo config/correios.php
+Configure os dados no arquivo config/vindi.php
 
 ## ENDPOINT DISPONÍVEIS
 
