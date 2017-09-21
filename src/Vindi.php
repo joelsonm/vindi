@@ -6,8 +6,21 @@ namespace Joelsonm\Vindi;
  */
 class Vindi
 {
-    function __call($method, $arguments)
+    private $apikey;
+
+    public function __construct($apikey)
     {
-        dd($method, $arguments);
+        $this->apikey = $apikey;
+    }
+
+    function __call($method, $arguments = null)
+    {
+        $class = '\\Joelsonm\Vindi\Resources\\' . ucfirst($method);
+
+        if (!class_exists($class, true)) {
+            throw new \Exception("{$class} not found");
+        }
+
+        return new $class($this->apikey);
     }
 }

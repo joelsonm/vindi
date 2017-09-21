@@ -16,21 +16,53 @@ class Resource
     function __construct($apikey)
     {
         $this->client = new Client([
-            'base_uri' => "$this->endpoint/$this->version/";
+            'base_uri' => $this->getEndpoint() . "/",
+            'auth' => [$apikey, '', 'BASIC'],
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'User-Agent'   => trim("Joelsonm/Vindi; " . url('/')),
+            ],
+            'timeout' => 60,
+            'exceptions' => false
         ]);
     }
 
-    public function getRequest($uri, $params = [])
+    private function getEndpoint()
     {
-        dd($this->client);
+        return $this->endpoint . '/' . $this->version;
     }
 
-    private function request($method, $uri, $params = [])
+    public function getRequest($uri, array $options = [])
     {
-        # code...
+        return $this->request('GET', $uri, $options);
+    }
+
+    public function postRequest($uri, array $options = [])
+    {
+        return $this->request('POST', $uri, $options);
+    }
+
+    public function putRequest($uri, array $options = [])
+    {
+        return $this->request('PUT', $uri, $options);
+    }
+
+    public function deleteRequest($uri, array $options = [])
+    {
+        return $this->request('DELETE', $uri, $options);
+    }
+
+    private function request($method, $uri, array $options = [])
+    {
+        $request = $this->client->request($method, $uri, $options);
+
+        return $this->response($request);
     }
 
     private function response($response){
-        return $response;
+        return json_decode(json_encode(array_merge([
+            'status' => $response->getStatusCode(),
+            'headers' => $response->getHeaders(),
+        ], json_decode($response->getBody()->getContents(), true))));
     }
 }
