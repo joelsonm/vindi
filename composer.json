@@ -1,0 +1,14 @@
+{
+    "name": "joelsonm/vindi",
+    "description": "API REST Vindi para Laravel 5.*",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "authors": [
+        {
+            "name": "Joelson",
+            "email": "joelsonm@live.com"
+        }
+    ]
+}
